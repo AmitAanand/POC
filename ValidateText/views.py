@@ -4,7 +4,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-
+from .models import Product
+from math import ceil
 
 def index(request):
     return render(request,'Home.html')
@@ -56,3 +57,13 @@ def analyze(request):
                 'text': analyzed
             }
         return render(request,'analyze.html', context)
+
+def about(request):
+    products = Product.objects.all()
+    p_count = len(products)
+    n_slides = p_count//4 + ceil((p_count/4)-(p_count/4))
+    params = {'no_of_slides':n_slides,'range':range(1,n_slides),'product':products}
+    return render(request,'about.html',params)
+
+def contactus(request):
+    return render(request,'contactus.html')

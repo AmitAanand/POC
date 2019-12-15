@@ -6,4 +6,6 @@ app_name='ValidateText'
 urlpatterns = [
     path('',views.index, name='index'),
     path('analyze/', views.analyze, name='analyze'),
+    path('about/', views.about, name='about'),
+    path('contactus/', views.contactus, name='contactus'),
 ]
