@@ -43,8 +43,9 @@ def analyze(request):
         if extraspaceremover == 'on':
             analyzed = ''
             for index, char in enumerate(dj_text):
-                if not(dj_text[index] == ' ' and dj_text[index+1] == ' '):
-                    analyzed += char
+                if dj_text[index] != int(len(dj_text)):
+                    if not(dj_text[index] == ' ' and dj_text[index+1] == ' '):
+                        analyzed += char
 
         if (removepunc != 'on' and uppercase != 'on' and newlineremover != 'on' and extraspaceremover != 'on'):
             context = {
