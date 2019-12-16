@@ -1,0 +1,1 @@
+web: gunicorn POC.wsgi --log-file -
