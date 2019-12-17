@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -19,7 +19,7 @@ def analyze(request):
         uppercase = request.GET.get('uppercase','off')
         newlineremover = request.GET.get('newlineremover','off')
         extraspaceremover = request.GET.get('extraspaceremover','off')
-
+        analyzed=''
         if removepunc == 'on':
             analyzed = ''
             for char in dj_text:
@@ -58,7 +58,8 @@ def analyze(request):
                 'text': analyzed
             }
         return render(request,'analyze.html', context)
-
+    else:
+        return HttpResponse('validateText.html')
 def about(request):
     products = Product.objects.all()
     p_count = len(products)

@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+Login | Page
+{% endblock %}
+
+{% block content %}
+<h1> This is Login page</h1>
+
+
+
+<form class="site-form" action="{% url 'accounts:login' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+
+    <input type="submit" value="login">
+
+</form>
+
+{% endblock %}

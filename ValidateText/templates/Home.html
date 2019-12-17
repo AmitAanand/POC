@@ -1,33 +1,55 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Awesome Blog
+{% endblock %}
+
+
 {% block content %}
 
 
+
+<section class="jumbotron text-center">
 <div class="container">
-        <form action="/analyze" method="GET">
-         {% csrf_token %}
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Enter Your Text Here..!</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text"></textarea>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1" name="removepunc">
-              <label class="custom-control-label" for="customSwitch1">Remove Punctuation</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch2" name="uppercase">
-              <label class="custom-control-label" for="customSwitch2">UPPERCASE</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch3" name="newlineremover">
-              <label class="custom-control-label" for="customSwitch3">New Line Remover</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch4" name="extraspaceremover">
-              <label class="custom-control-label" for="customSwitch4">Extra Space Remover</label>
-            </div>
-             <button type="submit" class="btn btn-dark mt-2">Analyze Text</button>
-        </form>
+    <h1>Welcome to Awsome Blog</h1>
+    <p class="lead text-muted">Life is 10% what happens to you and 90% how you react to it.</p>
+
+     <nav>
+        {% if user.is_authenticated %}
+            <form class="logout-link" action="{% url 'accounts:logout' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+        <a class="btn btn-primary my-2" href="{% url 'accounts:login' %}">LOGIN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-secondary my-2" href="{% url 'accounts:signup' %}">Register</a>
+        {% endif %}
+
+     </nav>
+
+
+
+</div>
+</section>
+
+
+<div class="container">
+
+    <div class="list-group">
+          <ul class="list-group">
+              <a href="{% url 'ValidateText:analyze' %}"> <li class="list-group-item">Dapibus ac facilisis in</li></a>
+              <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+              <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+              <li class="list-group-item list-group-item-success">A simple success list group item</li>
+              <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+              <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+              <li class="list-group-item list-group-item-info">A simple info list group item</li>
+              <li class="list-group-item list-group-item-light">A simple light list group item</li>
+              <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+           </ul>
+        </div>
+
+
 </div>
 
 {% endblock %}
