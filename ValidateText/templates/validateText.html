@@ -7,33 +7,34 @@ Awesome Blog
 
 {% block content %}
 
-<div class="container">
+    <div class="container">
 
-    <div class="list-group">
-         <form action="/analyze" method="GET">
-         {% csrf_token %}
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Enter Your Text Here..!</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text"></textarea>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1" name="removepunc">
-              <label class="custom-control-label" for="customSwitch1">Remove Punctuation</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch2" name="uppercase">
-              <label class="custom-control-label" for="customSwitch2">UPPERCASE</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch3" name="newlineremover">
-              <label class="custom-control-label" for="customSwitch3">New Line Remover</label>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch4" name="extraspaceremover">
-              <label class="custom-control-label" for="customSwitch4">Extra Space Remover</label>
-            </div>
-             <button type="submit" class="btn btn-dark mt-2">Analyze Text</button>
-        </form>
-</div>
+        <div class="list-group">
+             <form action="/analyze" method="GET">
+             {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Enter Your Text Here..!</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text"></textarea>
+                </div>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch1" name="removepunc">
+                  <label class="custom-control-label" for="customSwitch1">Remove Punctuation</label>
+                </div>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch2" name="uppercase">
+                  <label class="custom-control-label" for="customSwitch2">UPPERCASE</label>
+                </div>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch3" name="newlineremover">
+                  <label class="custom-control-label" for="customSwitch3">New Line Remover</label>
+                </div>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch4" name="extraspaceremover">
+                  <label class="custom-control-label" for="customSwitch4">Extra Space Remover</label>
+                </div>
+                 <button type="submit" class="btn btn-dark mt-2">Analyze Text</button>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}

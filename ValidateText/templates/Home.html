@@ -16,10 +16,17 @@ Awesome Blog
 
      <nav>
         {% if user.is_authenticated %}
-            <form class="logout-link" action="{% url 'accounts:logout' %}" method="POST">
-                {% csrf_token %}
-                <button type="submit">Logout</button>
-            </form>
+            <BR>
+            <div class="container">
+
+                <div class="list-group">
+                      <ul class="list-group">
+                          <a href="{% url 'ValidateText:Analyze_Text' %}"> <li class="list-group-item list-group-item-light">Analyze String</li></a>
+                          <a href="{% url 'ValidateText:about' %}"><li class="list-group-item list-group-item-light">Product List</li></a>
+                          <a href="#"><li class="list-group-item list-group-item-light">Books Library</li></a>
+                       </ul>
+                </div>
+            </div>
         {% else %}
         <a class="btn btn-primary my-2" href="{% url 'accounts:login' %}">LOGIN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a class="btn btn-secondary my-2" href="{% url 'accounts:signup' %}">Register</a>
@@ -33,23 +40,6 @@ Awesome Blog
 </section>
 
 
-<div class="container">
 
-    <div class="list-group">
-          <ul class="list-group">
-              <a href="{% url 'ValidateText:analyze' %}"> <li class="list-group-item">Dapibus ac facilisis in</li></a>
-              <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
-              <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
-              <li class="list-group-item list-group-item-success">A simple success list group item</li>
-              <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
-              <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
-              <li class="list-group-item list-group-item-info">A simple info list group item</li>
-              <li class="list-group-item list-group-item-light">A simple light list group item</li>
-              <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
-           </ul>
-        </div>
-
-
-</div>
 
 {% endblock %}
